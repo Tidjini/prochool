@@ -13,15 +13,6 @@ Student application contiane this folow models, packed all students behavior:
 - Subscription
 - Student detailed informaitons, like parents and establishments
 
-## Flow Charts (TEST)
+## Database Sample
 
-```flow
-st=>start: Launch Write.md
-op=>operation: Start Writing
-cond=>condition: Success?
-e=>end: Awesome
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
+![database_diagram](./images/database_diagram.png)
