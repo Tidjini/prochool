@@ -8,8 +8,20 @@ Simple management school system, to handle absences and presences, with memebers
 
 ## Students
 
-Packed in student application:
+Student application contiane this folow models, packed all students behavior:
 
-- Students
-- Parents
-- Establishments
+- Subscription
+- Student detailed informaitons, like parents and establishments
+
+## Flow Charts (TEST)
+
+```flow
+st=>start: Launch Write.md
+op=>operation: Start Writing
+cond=>condition: Success?
+e=>end: Awesome
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
