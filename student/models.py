@@ -10,4 +10,4 @@ class Student(models.Model):
     pk: is a code barre with EAN13
     """
 
-    code_barre = models.CharField(max_length=13, primary=True)
+    barre_code = models.CharField(max_length=13, primary=True)
