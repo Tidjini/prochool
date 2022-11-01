@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # prochool applications
     "student",
+    "teacher",
 ]
 
 MIDDLEWARE = [

@@ -1,13 +1,18 @@
 from django.db import models
 
 
+from teacher.models import Teacher
 from .Student import Student
 
 
 class Membership(models.Model):
 
-    student = models.OneToOneField(Student)
-    # todo professer
+    student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, related_name="my_memberships"
+    )
+    teacher = models.ForeignKey(
+        Teacher, on_delete=models.SET_NULL, null=True, related_name="memberships_for"
+    )
 
     remain_sessions = models.IntegerField()
     sessions = models.IntegerField()
@@ -53,3 +58,6 @@ class Membership(models.Model):
         Ex: if student comes after 2 free session, admins will be notified to allow the student access or not
         """
         return 0
+
+    class Meta:
+        unique_together = ("student", "teacher")
