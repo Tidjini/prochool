@@ -1,7 +1,7 @@
 from django.db import models
 
+
 from teacher.models import Teacher
-from student.models import Student
 from core.constants import DAYS_SEPARATER
 
 
