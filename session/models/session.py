@@ -10,5 +10,5 @@ class Session(models.Model):
     open = models.BooleanField()
 
     class Meta:
-        ordering = ('-open', 'date')
+        ordering = '-open', 'date'
 
