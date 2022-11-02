@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # prochool applications
     "student",
     "teacher",
-    "group"
+    "group",
+    "session"
 ]
 
 MIDDLEWARE = [
