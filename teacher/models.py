@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-from student.models.Citizen import Citizen
+from core.db.Citizen import Citizen
 
 # Create your models here.
 

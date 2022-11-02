@@ -1,4 +1,4 @@
-# PROCHOOL / API PROJECT
+# PROCHOOL
 
 Simple management school system, to handle absences and presences, with memebership for students
 

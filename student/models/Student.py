@@ -1,6 +1,6 @@
 from django.db import models
 
-from student.models.Citizen import Citizen
+from core.db.Citizen import Citizen
 from student.models.Establishment import Establishment
 from student.models.Parent import Parent
 
