@@ -14,11 +14,11 @@ DEBUG = True
 # Specific database for developments
 # make sure that, Databases are similair in Both Dev and Production
 # if you are using SQLite in Dev, use it also for Production
-# for best practice 
+# for best practice
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR.child("db.sqlite3"),
     }
 }
 

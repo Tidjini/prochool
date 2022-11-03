@@ -5,21 +5,21 @@ Important: make sure to not import any of Django module in settings.
 Except for ImproperlyConfigured Exception 
 """
 import os
-from pathlib import Path
+from unipath import Path
 from django.core.exceptions import ImproperlyConfigured
+
 
 def get_env_variable(var_name):
     '''Get environment variable or return an exception'''
     try:
-        return os.environ[var_name] 
+        return os.environ[var_name]
     except ImproperlyConfigured:
         message = 'Set the {} environment variable'.format(var_name)
         raise ImproperlyConfigured(message)
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# Use Unipath
+BASE_DIR = Path(__file__).ancestor(3)
 
 
 # Get SECRET KEY from environment variable
@@ -74,7 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "prochool.wsgi.application"
-
 
 
 # Password validation
