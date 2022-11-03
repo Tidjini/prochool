@@ -61,3 +61,6 @@ class Membership(models.Model):
 
     class Meta:
         unique_together = ("student", "teacher")
+
+
+# todo: remember to add a statue to this membership

@@ -1,6 +1,6 @@
 from django.db import models
 
-from core.db.Citizen import Citizen
+from core.db.citizen import Citizen
 
 
 class Parent(Citizen):
