@@ -21,8 +21,6 @@ def get_env_variable(var_name):
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # Get SECRET KEY from environment variable
 SECRET_KEY = get_env_variable("PROCHOOL_SECRET_KEY")
