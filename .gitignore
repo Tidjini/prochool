@@ -108,5 +108,5 @@ static_collected
 
 # Exclude machine-specific vs code settings
 .vscode
-prochool/settings/prod.py
+config/settings/prod.py
 db.sqlite3
