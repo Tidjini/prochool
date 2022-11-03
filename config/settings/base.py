@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # prochool applications
-    "student",
-    "teacher",
-    "group",
-    "session"
+    "prochool.student",
+    "prochool.teacher",
+    "prochool.group",
+    "prochool.session"
 ]
 
 MIDDLEWARE = [
