@@ -15,4 +15,4 @@ Student application contiane this folow models, packed all students behavior:
 
 ## Database Sample
 
-![database_diagram](./images/database_diagram.png)
+![database_diagram](./docs/images/database_diagram.png)
