@@ -1,14 +1,14 @@
 from django.db import models
 
-from group.models import Group
+from prochool.groups.models import Group
 
 
-class Session(models.Model):
+class Course(models.Model):
 
     date = models.DateField(auto_now_add=True)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='sessions')
+    group = models.ForeignKey(
+        Group, on_delete=models.CASCADE, related_name='courses')
     open = models.BooleanField()
 
     class Meta:
         ordering = '-open', 'date'
-

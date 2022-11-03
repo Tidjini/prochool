@@ -1,8 +1,8 @@
 from django.db import models
 
-from core.db.Citizen import Citizen
-from student.models.Establishment import Establishment
-from student.models.Parent import Parent
+from prochool.core.db.citizen import Citizen
+from .establishment import Establishment
+from .parent import Parent
 
 # Create your models here.
 
@@ -24,7 +24,8 @@ class Student(Citizen):
         ("g", "Good"),
         ("e", "Excelent"),
     )
-    BRANCHES = (("math", "Math"), ("science", "Science"), ("science", "Science"))
+    BRANCHES = (("math", "Math"), ("science", "Science"),
+                ("science", "Science"))
 
     barre_code = models.CharField(max_length=13, primary_key=True)
     sex = models.CharField(max_length=1, choices=SEX_TYPE)

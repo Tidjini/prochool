@@ -1,8 +1,8 @@
 from django.db import models
 
 
-from teacher.models import Teacher
-from .Student import Student
+from prochool.teachers.models import Teacher
+from .student import Student
 
 
 class Membership(models.Model):

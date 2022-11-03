@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-from core.db.citizen import Citizen
+from prochool.core.db.citizen import Citizen
 
 # Create your models here.
 

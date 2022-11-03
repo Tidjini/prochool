@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # prochool applications
-    "prochool.students",
     "prochool.teachers",
+    "prochool.students",
     "prochool.groups",
-    "prochool.sessions"
+    "prochool.courses"
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "prochool.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "prochool.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Password validation

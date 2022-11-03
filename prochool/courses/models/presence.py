@@ -2,22 +2,22 @@ from email.policy import default
 from django.db import models
 
 
+from .course import Course
+from prochool.students.models import Student
 
-from .session import Session
-from student.models import Student
 
 class Presence(models.Model):
 
-    
-    session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name='presences')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='my_presences')
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name='presences')
+    student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, related_name='my_presences')
 
     # difference between date of presence and session:
     # is that session can be started (or not yet),
-    # and the student is presents in other session, 
+    # and the student is presents in other session,
     # and later then he will be related to his proper sessions. (Delays issues..)
-    date = models.DateField(auto_now_add = True)
-
+    date = models.DateField(auto_now_add=True)
 
     # by defaults all student are absents
     absent = models.BooleanField(default=True)

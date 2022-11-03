@@ -1,6 +1,6 @@
 from django.db import models
 
-from core.db.citizen import Citizen
+from prochool.core.db.citizen import Citizen
 
 
 class Parent(Citizen):
