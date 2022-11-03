@@ -1,9 +1,21 @@
 """
 Prochool Base Settings.
 
+Important: make sure to not import any of Django module in settings.
+Except for ImproperlyConfigured Exception 
 """
-
+import os
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name):
+    '''Get environment variable or return an exception'''
+    try:
+        return os.environ[var_name] 
+    except ImproperlyConfigured:
+        message = 'Set the {} environment variable'.format(var_name)
+        raise ImproperlyConfigured(message)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-++29r$1hy8+m8@#!#otsff7q+oegb%a*#q-ck-+boofyv!8^b%"
+# Get SECRET KEY from environment variable
+SECRET_KEY = get_env_variable("PROCHOOL_SECRET_KEY")
 
 
 ALLOWED_HOSTS = []
