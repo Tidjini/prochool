@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "prochool.teachers",
     "prochool.students",
     "prochool.groups",
-    "prochool.courses"
+    "prochool.courses",
+    "prochool.payments"
 ]
 
 MIDDLEWARE = [
