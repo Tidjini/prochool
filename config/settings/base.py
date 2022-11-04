@@ -124,5 +124,11 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+# Allow * to Cros Origin
 CORS_ORIGIN_ALLOW_ALL = True
+
+# django rest framework base settings
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 100
+}
