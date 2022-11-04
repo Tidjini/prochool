@@ -4,7 +4,7 @@ from students.models import Establishment
 from students.serializers import EstablishmentSerializer
 
 
-class EstablishmentViewSet(viewsets.ModelViewSet):
+class EstablishmentApiViewSet(viewsets.ModelViewSet):
 
     queryset = Establishment.objects.all()
     permission_classes = (AllowAny,)
