@@ -16,3 +16,14 @@ Student application contiane this folow models, packed all students behavior:
 ## Database Sample
 
 ![database_diagram](./docs/images/database_diagram.png)
+
+## CORS HEADERS
+
+### Problems
+
+Browser can hide you from resources from a different domain, (you can use just your domain or sub)
+Cross-Origin Resources Sharing come to rescue
+
+- Access-Control-Allow-Origin: to allow the use of our resources
+- Access-Control-Allow-Headers: to allow the send requests with specifics headers
+- Access-Control-Allow-Creadentials | 'true': to allow cockies

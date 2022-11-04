@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # prochool applications
+    # third-party
+    "corsheaders",
+    "rest_framework",
+    # prochool
     "prochool.teachers",
     "prochool.students",
     "prochool.groups",
