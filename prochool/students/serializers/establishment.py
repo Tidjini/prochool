@@ -1,8 +1,8 @@
-from rest_framework import serializes
-from students.models import Establishment
+from rest_framework import serializers
+from prochool.students.models import Establishment
 
 
-class EstablishmentSerializer(serializes.ModelSerializer):
+class EstablishmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Establishment

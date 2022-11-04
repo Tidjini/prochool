@@ -9,6 +9,6 @@ class Establishment(models.Model):
     has students related_name in Student model
     """
 
-    name = models.CharField(max_length=100, blank=False, null=False)
-    address = models.CharField(max_length=255)
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=255, null=True, blank=True)
     # todo add others fileds for more details
