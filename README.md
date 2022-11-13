@@ -27,3 +27,15 @@ Cross-Origin Resources Sharing come to rescue
 - Access-Control-Allow-Origin: to allow the use of our resources
 - Access-Control-Allow-Headers: to allow the send requests with specifics headers
 - Access-Control-Allow-Creadentials | 'true': to allow cockies
+
+# Some todos for Tidjini:
+
+- CRUD operations for all objects.
+- useful queries ? don't know
+- Business Logic:
+  - open course
+  - set student and presence
+  - create a payment
+  - confirm a payment (Barre Code)
+  - cancel presence
+  - cancel payment
