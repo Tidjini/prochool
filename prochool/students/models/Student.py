@@ -4,6 +4,7 @@ from prochool.core.db.citizen import Citizen
 from .establishment import Establishment
 from .parent import Parent
 from prochool.core.helpers import generate_unique_code
+from prochool.students.helpers import student_exist
 
 # Create your models here.
 
@@ -43,7 +44,18 @@ class Student(Citizen):
     observation = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        if not self.pk:
+        # if is update, pk exist apply super.save
+        if self.pk:
+            super(Student, self).save(*args, **kwargs)
+            return
+
+        # if is new one, check existance
+        student = student_exist(**kwargs)
+        if student:
+            # if student exist get his barre code
+            self.barre_code = student.barre_code
+        else:
+            # otherwise generate a new one
             self.barre_code = generate_unique_code(Student)
 
-        return super(Student, self).save(*args, **kwargs)
+        super(Student, self).save(*args, **kwargs)

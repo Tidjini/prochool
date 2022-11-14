@@ -32,6 +32,6 @@ class Payment(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.barre_code = generate_unique_code()
+            self.barre_code = generate_unique_code(Payment)
 
         super(Payment, self).save(*args, **kwargs)

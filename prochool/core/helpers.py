@@ -33,6 +33,9 @@ def generate_unique_code(model: Model) -> str:
 
     continue generate codes untill get a unique one
     '''
+    if model is None:
+        raise Exception('Model is not define')
+
     while True:
         code = generate_ean_13()
         try:
