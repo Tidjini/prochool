@@ -42,7 +42,8 @@ class Student(Citizen):
 
     observation = models.CharField(max_length=255)
 
-    def generate_new_barre_code():
+    @classmethod
+    def generate_new_barre_code(cls):
         while True:
             code = generate_ean_13()
             try:
@@ -50,6 +51,6 @@ class Student(Citizen):
             except Student.DoesNotExist:
                 return code
 
-    def save(self, *args, **kwargs) -> None:
+    def save(self, *args, **kwargs):
         self.barre_code = self.generate_new_barre_code()
-        super(Student, self).save(*args, **kwargs)
+        return super(Student, self).save(*args, **kwargs)
