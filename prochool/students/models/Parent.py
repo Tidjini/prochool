@@ -3,6 +3,7 @@ from django.db import models
 from prochool.core.db.citizen import Citizen
 
 
+# todo get fathers, get mothers, get others in manager
 class Parent(Citizen):
     """Parent Model: Encapsulate Parent base information
 
