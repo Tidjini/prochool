@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from prochool.students.models import Establishment
+from .models.establishment import Establishment
 
 
 class EstablishmentSerializer(serializers.ModelSerializer):

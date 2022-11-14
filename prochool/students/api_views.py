@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from prochool.students.models import Establishment
-from prochool.students.serializers import EstablishmentSerializer
+from .models.establishment import Establishment
+from .serializers import EstablishmentSerializer
 
 
 class EstablishmentApiViewSet(viewsets.ModelViewSet):
