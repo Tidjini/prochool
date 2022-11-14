@@ -25,7 +25,7 @@ class Student(Citizen):
         ("e", "Excelent"),
     )
     BRANCHES = (("math", "Math"), ("science", "Science"),
-                ("science", "Science"))
+                ("other", "Other"))
 
     barre_code = models.CharField(max_length=13, primary_key=True)
     sex = models.CharField(max_length=1, choices=SEX_TYPE)

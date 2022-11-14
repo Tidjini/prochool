@@ -5,6 +5,7 @@ from .models.establishment import Establishment
 from .models.parent import Parent
 
 
+# todo in details get students list of each establishment
 class EstablishmentSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -13,6 +14,7 @@ class EstablishmentSerializer(serializers.ModelSerializer):
         read_only = ('id',)
 
 
+# todo in details get students of these parents
 class ParentSerializer(serializers.ModelSerializer):
 
     class Meta:
