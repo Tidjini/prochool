@@ -3,7 +3,7 @@ from django.db import models
 from prochool.core.db.citizen import Citizen
 from .establishment import Establishment
 from .parent import Parent
-from prochool.core.helpers import generate_ean_13
+from prochool.core.helpers import generate_unique_code
 
 # Create your models here.
 
@@ -42,18 +42,6 @@ class Student(Citizen):
 
     observation = models.CharField(max_length=255)
 
-    @classmethod
-    def generate_new_barre_code(cls):
-        while True:
-            code = generate_ean_13()
-            try:
-                Student.objects.get(barre_code=code)
-            except Student.DoesNotExist:
-                return code
-
     def save(self, *args, **kwargs):
-        self.barre_code = self.generate_new_barre_code()
+        self.barre_code = generate_unique_code(Student)
         return super(Student, self).save(*args, **kwargs)
-
-    def __str__(self) -> str:
-        return "{}"

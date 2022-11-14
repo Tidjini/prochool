@@ -1,6 +1,8 @@
 from random import randrange
 from functools import reduce
 
+from django.db.models import Model
+
 
 def generate(length: int = 12) -> list:
     '''Generate n (length) random number from 2 -> 9'''
@@ -24,3 +26,16 @@ def generate_ean_13():
     digits = generate()
     digits.append(checksum(digits))
     return ''.join(map(str, digits))
+
+
+def generate_unique_code(model: Model) -> str:
+    '''Generate unique for model
+
+    continue generate codes untill get a unique one
+    '''
+    while True:
+        code = generate_ean_13()
+        try:
+            model.objects.get(barre_code=code)
+        except model.DoesNotExist:
+            return code
