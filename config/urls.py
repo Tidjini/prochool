@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/students/', include('prochool.students.api_urls')),
     path('api/teachers/', include('prochool.teachers.api_urls')),
-    path('api/groups/', include('prochool.groups.api_urls'))
+    path('api/groups/', include('prochool.groups.api_urls')),
+    path('api/courses/', include('prochool.courses.api_urls')),
 ]
