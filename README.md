@@ -39,3 +39,4 @@ Cross-Origin Resources Sharing come to rescue
   - confirm a payment (Barre Code)
   - cancel presence
   - cancel payment
+  - reporting stuff

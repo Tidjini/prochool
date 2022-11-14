@@ -24,3 +24,12 @@ DATABASES = {
 
 # add other usefull libraries for development
 # INSTALLED_APPS += ('debug_toolbar',)
+
+''' Custom Developer Settings 
+
+Ex: For me Tidjini ;)
+'''
+
+
+# short cahche timout
+CACHE_TIMEOUT = 30
