@@ -3,7 +3,7 @@
 from django.db import models
 from prochool.students.models import Student
 from prochool.teachers.models import Teacher
-
+from prochool.core.helpers import generate_unique_code
 # Create your models here.
 
 
@@ -29,3 +29,9 @@ class Payment(models.Model):
     confirmed = models.BooleanField()
     # to track if payment had insert by a user with a web form or by the Barre Code Scanner (Auto)
     manuel = models.BooleanField()
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.barre_code = generate_unique_code()
+
+        super(Payment, self).save(*args, **kwargs)
