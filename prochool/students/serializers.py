@@ -25,7 +25,7 @@ class ParentSerializer(serializers.ModelSerializer):
         read_only_fields = 'id',
 
 
-# todo get his memeberships, in details
+# todo get his memeberships, in details, places, groups, establishments
 class StudentSerializer(serializers.ModelSerializer):
 
     class Meta:
