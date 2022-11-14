@@ -43,5 +43,7 @@ class Student(Citizen):
     observation = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.barre_code = generate_unique_code(Student)
+        if not self.pk:
+            self.barre_code = generate_unique_code(Student)
+
         return super(Student, self).save(*args, **kwargs)
