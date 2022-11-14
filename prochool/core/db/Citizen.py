@@ -14,3 +14,10 @@ class Citizen(models.Model):
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return '{} {}'.format(self.last_name.upper(), self.first_name.title())
+
+    @property
+    def name(self):
+        return '{} {}'.format(self.last_name.upper(), self.first_name.title())

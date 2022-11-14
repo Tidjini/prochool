@@ -59,8 +59,17 @@ class Membership(models.Model):
         """
         return 0
 
+    @property
+    def student_name(self) -> str:
+        return self.student.name
+
+    @property
+    def teacher_name(self) -> str:
+        return self.teacher.name
+
     class Meta:
         unique_together = ("student", "teacher")
+        ordering = ('credit',)
 
 
 # todo: remember to add a statue to this membership

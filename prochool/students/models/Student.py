@@ -54,3 +54,6 @@ class Student(Citizen):
     def save(self, *args, **kwargs):
         self.barre_code = self.generate_new_barre_code()
         return super(Student, self).save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return "{}"
