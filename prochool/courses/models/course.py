@@ -9,6 +9,7 @@ class Course(models.Model):
     group = models.ForeignKey(
         Group, on_delete=models.CASCADE, related_name='courses')
     open = models.BooleanField()
+    observation = models.CharField(max_length=255, null=True)
 
     class Meta:
         ordering = '-open', 'date'

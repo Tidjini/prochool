@@ -3,10 +3,9 @@
 #       in managers set Student.exist(**kwargs) some reflexion
 #    2/ if not exist : generate barre code and save it as exist now
 
-from .models.student import Student
 
 
-def student_exist(**kwrags):
+def student_exist(model, **kwrags):
     keys = ('first_name', 'last_name', 'phone')
     fields = {k: v for k, v in kwrags if k in keys}
     return Student.objects.get(**fields)

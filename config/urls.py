@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/teachers/', include('prochool.teachers.api_urls')),
     path('api/groups/', include('prochool.groups.api_urls')),
     path('api/courses/', include('prochool.courses.api_urls')),
+    path('api/payments/', include('prochool.payments.api_urls')),
 ]

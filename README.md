@@ -19,6 +19,9 @@ Student application contiane this folow models, packed all students behavior:
 
 ## CORS HEADERS
 
+## STUDENTS:
+Create a student with generated barre code, and check his exsitance with name and phone
+
 ### Problems
 
 Browser can hide you from resources from a different domain, (you can use just your domain or sub)
@@ -30,8 +33,16 @@ Cross-Origin Resources Sharing come to rescue
 
 # Some todos for Tidjini:
 
-- CRUD operations for all objects.
-- useful queries ? don't know
+- CRUD operations for all objects Almost DONE.
+- Track function by function
+- Groups Functions into services modules
+- Separate the business logic
+- Toughts and reviews todo: 
+    - app/api/api-modules
+    - urls : groupe/<id>/places/<id> | student/<id>/payments/<id>
+    - put all urls related app in app/ulrs.py remove api_urls
+    - urls / make a global api_url in settings to get all your urls in one urlpatterns
+     
 - Business Logic:
   - open course
   - set student and presence

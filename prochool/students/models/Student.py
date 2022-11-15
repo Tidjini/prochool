@@ -50,7 +50,7 @@ class Student(Citizen):
             return
 
         # if is new one, check existance
-        student = student_exist(**kwargs)
+        student = student_exist(Student, **kwargs)
         if student:
             # if student exist get his barre code
             self.barre_code = student.barre_code

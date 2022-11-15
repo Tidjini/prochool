@@ -20,6 +20,7 @@ class Membership(models.Model):
 
     debit = models.FloatField()
     credit = models.FloatField()
+    free_membership = models.BooleanField()
 
     @property
     def balance(self) -> float:
