@@ -44,6 +44,7 @@ Cross-Origin Resources Sharing come to rescue
     - put all urls related app in app/ulrs.py remove api_urls
     - urls / make a global api_url in settings to get all your urls in one urlpatterns
     - Search for get or none for models level
+    - TESTING this stuff
      
 - Business Logic:
   - open course
