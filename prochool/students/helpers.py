@@ -5,10 +5,7 @@
 
 
 
-def student_exist(model, **kwrags):
-    keys = ('first_name', 'last_name', 'phone')
-    fields = {k: v for k, v in kwrags if k in keys}
-    return Student.objects.get(**fields)
+
 
 
 

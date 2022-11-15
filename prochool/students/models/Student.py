@@ -50,7 +50,7 @@ class Student(Citizen):
             return
 
         # if is new one, check existance
-        student = student_exist(Student, **kwargs)
+        student = StudentAPI.exist(**kwargs)
         if student:
             # if student exist get his barre code
             self.barre_code = student.barre_code
@@ -59,3 +59,17 @@ class Student(Citizen):
             self.barre_code = generate_unique_code(Student)
 
         super(Student, self).save(*args, **kwargs)
+
+
+class StudentAPI:
+
+    @staticmethod
+    def exist(**kwargs):
+        
+        specific_keys = ('first_name', 'last_name', 'phone')
+        #get specific fields to check existence
+        fields = {key: value for key, value in kwargs if key in specific_keys}
+        try:
+            return Student.objects.get(**fields)
+        except Student.DoesNotExist:
+            return None

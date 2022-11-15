@@ -21,6 +21,7 @@ Student application contiane this folow models, packed all students behavior:
 
 ## STUDENTS:
 Create a student with generated barre code, and check his exsitance with name and phone
+Student useful information: is paid or not, last presence information, student place in group, payment list, presence list, group list.
 
 ### Problems
 
