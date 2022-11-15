@@ -27,11 +27,23 @@ class Presence(models.Model):
 
     @property
     def last_presence(self):
-        try:
-            last_presence = Presence.objects.order_by('-date').get(student=self.student, group=self.group)
-            return not last_presence.absent
-        except Presence.DoesNotExist:
-            return False
+        return PresenceAPI.get_last_presence(self.student, self.group)
 
     class Meta:
         ordering = 'date',
+
+
+'''Useful API for other places to call'''
+class PresenceAPI:
+    @staticmethod
+    def get_last_presence(student, group):
+        '''Get last Presence of student in Group
+        
+        return last presence in this group with absent property
+        '''
+        try:
+            last = Presence.objects.order_by('-date').get(student=student, group=group)
+            return not last.absent
+        
+        except Presence.DoesNotExist:
+            return False
