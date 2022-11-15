@@ -67,11 +67,15 @@ class Membership(models.Model):
     @property
     def teacher_name(self) -> str:
         return self.teacher.name
-
-	@property
-	def paid(self):
-		membership = Membership.objects.get(student=self.student,teacher=self.teacher, None)
-		return membership and (membership.remain_sessions > 0 or membership.free_membership)
+    
+    
+    @property
+    def paid(self):
+        try:
+            this = Membership.objects.get(student=self.student, teacher=self.teacher)
+            return this.free_membership or this.remain_sessions > 0
+        except Membership.DoesNotExist:
+            return False
 
 
     class Meta:

@@ -27,8 +27,11 @@ class Presence(models.Model):
 
     @property
     def last_presence(self):
-        last_presence = Presence.objects.order_by('-date').get(student=self.student, group=self.group, None)
-        return last_presence and not last_presence.absent
+        try:
+            last_presence = Presence.objects.order_by('-date').get(student=self.student, group=self.group)
+            return not last_presence.absent
+        except Presence.DoesNotExist:
+            return False
 
     class Meta:
         ordering = 'date',

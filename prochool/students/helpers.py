@@ -28,28 +28,22 @@ def student_exist(model, **kwrags):
 
 
 
-# place - prop
-def student_place(barre_code, group):
-    student = Student.objects.get(barre_code=barre_code, None)
-    if not student:
-        return
-    place = student.my_places.get(group=group, None)
-    return place
 
 
-# student manager
-def student_places(barre_code):
-    student = Student.objects.get(barre_code=barre_code, None)
-    if not student:
-        return
-    return student.my_places.all()
 
-# student manager ?
-def student_groups(barre_code, group):
-    student = Student.objects.get(barre_code=barre_code, None)
-    if not student:
-        return
-    #review this
-    place = student.my_places.group()
-    return place
+# # student manager
+# def student_places(barre_code):
+#     student = Student.objects.get(barre_code=barre_code, None)
+#     if not student:
+#         return
+#     return student.my_places.all()
+
+# # student manager ?
+# def student_groups(barre_code, group):
+#     student = Student.objects.get(barre_code=barre_code, None)
+#     if not student:
+#         return
+#     #review this
+#     place = student.my_places.group()
+#     return place
 

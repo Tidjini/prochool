@@ -15,5 +15,15 @@ class Place(models.Model):
     student = models.ForeignKey(
         Student, on_delete=models.SET_NULL, null=True, related_name='my_places')
 
+
+    @property
+    def place(self):
+        try:
+            place = Place.objects.get(group=self.group, student=self.student)
+            return place
+        except Place.DoesNotExist:
+            return None
+
     class Meta:
+        unique_together = ("group", "student")
         ordering = ('index',)

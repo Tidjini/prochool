@@ -42,6 +42,7 @@ Cross-Origin Resources Sharing come to rescue
     - urls : groupe/<id>/places/<id> | student/<id>/payments/<id>
     - put all urls related app in app/ulrs.py remove api_urls
     - urls / make a global api_url in settings to get all your urls in one urlpatterns
+    - Search for get or none for models level
      
 - Business Logic:
   - open course
