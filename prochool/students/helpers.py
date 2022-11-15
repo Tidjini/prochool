@@ -9,3 +9,47 @@ def student_exist(model, **kwrags):
     keys = ('first_name', 'last_name', 'phone')
     fields = {k: v for k, v in kwrags if k in keys}
     return Student.objects.get(**fields)
+
+
+
+
+# todos: 
+#       - is student paied or not 
+#            my_memberships.filter(teacher).remain_sessions > 0 and free_membership = False
+#       - is student present last course 
+#            get last presence, check if student is absent or not
+#       - get student place or None -> my_places[id]
+#       - get student group -> my_places[id].group
+#       For details    
+#       - get list of presences -> my_presences
+#       - get list of payments -> payments
+#       - get list of places -> my_places
+
+
+
+
+# place - prop
+def student_place(barre_code, group):
+    student = Student.objects.get(barre_code=barre_code, None)
+    if not student:
+        return
+    place = student.my_places.get(group=group, None)
+    return place
+
+
+# student manager
+def student_places(barre_code):
+    student = Student.objects.get(barre_code=barre_code, None)
+    if not student:
+        return
+    return student.my_places.all()
+
+# student manager ?
+def student_groups(barre_code, group):
+    student = Student.objects.get(barre_code=barre_code, None)
+    if not student:
+        return
+    #review this
+    place = student.my_places.group()
+    return place
+

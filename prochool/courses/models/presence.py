@@ -25,5 +25,10 @@ class Presence(models.Model):
     # to check if a student has an issue, and get checked out by an administrator
     by_admin = models.BooleanField()
 
+    @property
+    def last_presence(self):
+        last_presence = Presence.objects.order_by('-date').get(student=self.student, group=self.group, None)
+        return last_presence and not last_presence.absent
+
     class Meta:
         ordering = 'date',

@@ -68,6 +68,12 @@ class Membership(models.Model):
     def teacher_name(self) -> str:
         return self.teacher.name
 
+	@property
+	def paid(self):
+		membership = Membership.objects.get(student=self.student,teacher=self.teacher, None)
+		return membership and (membership.remain_sessions > 0 or membership.free_membership)
+
+
     class Meta:
         unique_together = ("student", "teacher")
         ordering = ('credit',)

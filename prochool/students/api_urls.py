@@ -15,14 +15,3 @@ urlpatterns = [
     path("", include(router.urls))
 ]
 
-# todos: 
-#       - is student paied or not 
-#            my_memberships.filter(teacher).remain_sessions > 0 and free_membership = False
-#       - is student present last course 
-#       - get student place or None -> my_places[id]
-#       - get student group -> my_places[id].group
-#       For details    
-#       - get list of presences -> my_presences
-#       - get list of payments -> payments
-#       - get list of places -> my_places
-
