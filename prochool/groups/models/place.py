@@ -18,12 +18,19 @@ class Place(models.Model):
 
     @property
     def place(self):
-        try:
-            place = Place.objects.get(group=self.group, student=self.student)
-            return place
-        except Place.DoesNotExist:
-            return None
+        return PlaceAPI.get_place(self.student, self.group)
 
     class Meta:
         unique_together = ("group", "student")
         ordering = ('index',)
+
+
+class PlaceAPI:
+   
+    @staticmethod
+    def get_place(student, group):
+        try:
+            _ = Place.objects.get(group=group, student=student)
+            return _
+        except Place.DoesNotExist:
+            return None

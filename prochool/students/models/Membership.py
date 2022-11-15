@@ -71,11 +71,7 @@ class Membership(models.Model):
     
     @property
     def paid(self):
-        try:
-            this = Membership.objects.get(student=self.student, teacher=self.teacher)
-            return this.free_membership or this.remain_sessions > 0
-        except Membership.DoesNotExist:
-            return False
+        return MembershipAPI.is_paid(self.student, self.teacher)
 
 
     class Meta:
@@ -83,4 +79,15 @@ class Membership(models.Model):
         ordering = ('credit',)
 
 
-# todo: remember to add a statue to this membership
+
+
+class MembershipAPI:
+    
+    @staticmethod
+    def is_paid(student, teacher):
+        try:
+            _ = Membership.objects.get(student=student, teacher=teacher)
+            return _.free_memebership or _.remain_sessions > 0
+        except Memebership.DoesNotExist:
+            return False
+        
