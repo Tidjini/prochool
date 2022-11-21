@@ -4,7 +4,6 @@ from prochool.core.db.citizen import Citizen
 from .establishment import Establishment
 from .parent import Parent
 from prochool.core.helpers import generate_unique_code
-from prochool.students.helpers import student_exist
 
 # Create your models here.
 
@@ -60,14 +59,16 @@ class Student(Citizen):
 
         super(Student, self).save(*args, **kwargs)
 
+# treat object instances / Queryset and managers for set all instances
+
 
 class StudentAPI:
 
     @staticmethod
     def exist(**kwargs):
-        
+
         specific_keys = ('first_name', 'last_name', 'phone')
-        #get specific fields to check existence
+        # get specific fields to check existence
         fields = {key: value for key, value in kwargs if key in specific_keys}
         try:
             return Student.objects.get(**fields)
