@@ -67,27 +67,22 @@ class Membership(models.Model):
     @property
     def teacher_name(self) -> str:
         return self.teacher.name
-    
-    
+
     @property
     def paid(self):
         return MembershipAPI.is_paid(self.student, self.teacher)
-
 
     class Meta:
         unique_together = ("student", "teacher")
         ordering = ('credit',)
 
 
-
-
 class MembershipAPI:
-    
+
     @staticmethod
     def is_paid(student, teacher):
         try:
             _ = Membership.objects.get(student=student, teacher=teacher)
             return _.free_memebership or _.remain_sessions > 0
-        except Memebership.DoesNotExist:
+        except Membership.DoesNotExist:
             return False
-        
