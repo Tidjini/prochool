@@ -26,24 +26,38 @@ class Presence(models.Model):
     by_admin = models.BooleanField()
 
     @property
-    def last_presence(self):
-        return PresenceAPI.get_last_presence(self.student, self.group)
+    def present(self):
+        return PresenceAPI.present(self.student, self.group)
 
     class Meta:
         ordering = 'date',
 
 
 '''Useful API for other places to call'''
+
+
 class PresenceAPI:
     @staticmethod
     def get_last_presence(student, group):
         '''Get last Presence of student in Group
-        
+
         return last presence in this group with absent property
         '''
         try:
-            last = Presence.objects.order_by('-date').get(student=student, group=group)
-            return not last.absent
-        
+            return Presence.objects.order_by('-date').get(student=student, group=group)
+
         except Presence.DoesNotExist:
-            return False
+            return None
+
+    @staticmethod
+    def present(student, group):
+        last = PresenceAPI.get_last_presence(student, group)
+        if last:
+            return not last.absent
+        return False
+
+    @staticmethod
+    def set_absent(student, group, course):
+        last = PresenceAPI.get_last_presence(student, group)
+        if last:
+            last.absent = True

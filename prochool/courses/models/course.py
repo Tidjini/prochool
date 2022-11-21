@@ -31,9 +31,8 @@ class CourseAPI:
 
     @staticmethod
     def get_by_group(group):
-        # todo test if you get the latest open one
         try:
-            return Course.objects.get(group=group)
+            return Course.objects.order_by('-open', 'date').get(group=group)
         except Course.DoesNotExist:
             return None
 
@@ -44,3 +43,6 @@ class CourseAPI:
         if old:
             old.close()
         return Course.objects.create(group=group)
+
+
+# close course, if new student subscribe to this course and not assist
