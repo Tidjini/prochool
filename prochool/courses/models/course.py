@@ -1,15 +1,46 @@
+from datetime import datetime
+
+# django
 from django.db import models
 
+# application
 from prochool.groups.models import Group
 
 
 class Course(models.Model):
 
     date = models.DateField(auto_now_add=True)
+    closed_date = models.DateField()
     group = models.ForeignKey(
         Group, on_delete=models.CASCADE, related_name='courses')
-    open = models.BooleanField()
+    open = models.BooleanField(default=True)
     observation = models.CharField(max_length=255, null=True)
+
+    def close(self):
+        self.open = False
+        self.closed_date = datetime.now().date()
+        self.save()
 
     class Meta:
         ordering = '-open', 'date'
+
+
+# open course, must close the old one then open new one
+
+class CourseAPI:
+
+    @staticmethod
+    def get_by_group(group):
+        # todo test if you get the latest open one
+        try:
+            return Course.objects.get(group=group)
+        except Course.DoesNotExist:
+            return None
+
+    @staticmethod
+    def open(group):
+        '''when open close old one, and create new course'''
+        old = CourseAPI.get_by_group(group)
+        if old:
+            old.close()
+        return Course.objects.create(group=group)
